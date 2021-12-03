@@ -68,13 +68,14 @@ export default class Particles extends React.Component {
     );
 
     emitter.addInitialize(new Proton.Mass(1));
-    emitter.addInitialize(new Proton.Life(1));
+    emitter.addInitialize(new Proton.Life(4));
     emitter.addInitialize(new Proton.Body([dot], 32));
     emitter.addInitialize(new Proton.Radius(40));
+    emitter.addBehaviour(new Proton.RandomDrift(3, 3, 0.03));
 
-    emitter.addBehaviour(new Proton.Alpha(1, 0));
+    emitter.addBehaviour(new Proton.Alpha(0.5, 0));
     emitter.addBehaviour(new Proton.Color(startColor, endColor));
-    emitter.addBehaviour(new Proton.Scale(3.5, 0.1));
+    emitter.addBehaviour(new Proton.Scale(1.5, 0));
     emitter.addBehaviour(
       new Proton.CrossZone(
         new Proton.RectZone(0, 0, canvas.width, canvas.height),
