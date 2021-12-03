@@ -46,7 +46,7 @@ export default class Particles extends React.Component {
       x: canvas.width / 2 - this.conf.radius,
       y: canvas.height / 2,
       startColor: "#004CFE",
-      endColor: "#6600FF"
+      endColor: "#FF00FF"
     });
     proton.addEmitter(emitter1);
     proton.addEmitter(emitter2);
@@ -63,19 +63,19 @@ export default class Particles extends React.Component {
   createImageEmitter({ canvas, x, y, startColor, endColor }) {
     const emitter = new Proton.Emitter();
     emitter.rate = new Proton.Rate(
-      new Proton.Span(5, 7),
+      new Proton.Span(1, 2),
       new Proton.Span(0.01, 0.02)
     );
 
     emitter.addInitialize(new Proton.Mass(1));
-    emitter.addInitialize(new Proton.Life(4));
+    emitter.addInitialize(new Proton.Life(8));
     emitter.addInitialize(new Proton.Body([dot], 32));
     emitter.addInitialize(new Proton.Radius(40));
-    emitter.addBehaviour(new Proton.RandomDrift(3, 3, 0.03));
+    emitter.addBehaviour(new Proton.RandomDrift(1, 1, 0.03));
 
-    emitter.addBehaviour(new Proton.Alpha(0.5, 0));
+    emitter.addBehaviour(new Proton.Alpha(0.8, 0));
     emitter.addBehaviour(new Proton.Color(startColor, endColor));
-    emitter.addBehaviour(new Proton.Scale(1.5, 0));
+    emitter.addBehaviour(new Proton.Scale(2.5, 0));
     emitter.addBehaviour(
       new Proton.CrossZone(
         new Proton.RectZone(0, 0, canvas.width, canvas.height),
